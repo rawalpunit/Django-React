@@ -24,6 +24,7 @@ class Query(graphene.ObjectType):
     else:
       return NoteModel.objects.filter(user=user)
 
+# making a non-sensical change
 
 # Add a schema and attach the query
 schema = graphene.Schema(query=Query)
