@@ -12,9 +12,20 @@ class NoteSerializer(serializers.HyperlinkedModelSerializer):
 
   class Meta:
     model = Note
-    fields = ('title', 'content')
+    fields = ('title', 'content', 'tags')
 
 
 class NoteViewSet(viewsets.ModelViewSet):
   serializer_class = NoteSerializer
   queryset = Note.objects.all()
+
+  def get_queryset(self):
+    user = self.request.user
+    # import pdb; pdb.set_trace() <- to get into for self..self.user...all that stuff
+
+    if user.is_anonymous:
+      return Note.objects.none()
+    else:
+      return Note.objects.filter(user=user)
+
+

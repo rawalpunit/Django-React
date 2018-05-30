@@ -10,9 +10,9 @@ class Note(models.Model):
   content = models.TextField(blank=True)
   created_at = models.DateTimeField(auto_now_add=True)
   last_modified = models.DateTimeField(auto_now=True)
+  tags = models.TextField(blank=True)
 
   ######## Stretch Goals ########
-  # Tags / Categories
   # Sharing notes between users
   # Hook into bookmarks
   # File attachments
