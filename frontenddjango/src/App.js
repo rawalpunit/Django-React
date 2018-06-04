@@ -43,7 +43,9 @@ class App extends Component {
           {this.state.notes.map(note => (
             <div key={note.id}>
               <h1>{note.title}</h1>
-              <span>{note.content}</span>
+              <div>{note.content}</div>
+              <div>{note.tags}</div>
+              <div>{note.id}</div>
             </div>
           ))}
         </div>
